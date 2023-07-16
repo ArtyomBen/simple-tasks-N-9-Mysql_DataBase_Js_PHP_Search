@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("input[name='search']").on('change', function (e) {
+    $("input[name='search']").on('input', function (e) {
         if ($(this).val().trim().length == 3) {
             fetch('countries.php?search=' + $(this).val())
                 .then(response => response.json())
@@ -15,6 +15,8 @@ $(document).ready(function () {
                 .catch(error => {
                     console.log('Error:', error);
                 });
+        }else if ($(this).val().trim().length < 3){
+            $('#search-results').empty();
         }
     });
 });
