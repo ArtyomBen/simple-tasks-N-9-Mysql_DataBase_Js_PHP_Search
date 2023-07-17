@@ -3,7 +3,7 @@ include 'config.php';
 if (!empty ($_GET) && isset ($_GET['search'])){
     $countryesSearching = $_GET['search'];
 $country = mysqli_real_escape_string($conn, $countryesSearching);
-$sql = "SELECT code, name FROM country WHERE name LIKE '$countryesSearching%'";
+$sql = "SELECT code, name FROM country WHERE name LIKE '$country%'";
 
 $result = mysqli_query ($conn, $sql);
 if (!$result){
